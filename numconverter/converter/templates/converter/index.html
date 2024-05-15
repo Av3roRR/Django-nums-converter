@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Конвертер систем счисления</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      input {
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Конвертер систем счисления</h1>
+    <label for="number">Введите число:</label>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="number" id="number" />
+
+        <label for="from">Из:</label>
+        <select name="from" id="from">
+            <option value="2">Двоичной</option>
+            <option value="8">Восьмеричной</option>
+            <option value="10" selected>Десятичной</option>
+            <option value="16">Шестнадцатеричной</option>
+        </select>
+
+        <label for="to">В:</label>
+        <select name="to" id="to">
+            <option value="2">Двоичную</option>
+            <option value="8">Восьмеричную</option>
+            <option value="10" selected>Десятичную</option>
+            <option value="16">Шестнадцатеричную</option>
+        </select>
+
+        <button onclick="convert()">Конвертировать</button>
+    </form>
+    <div id="result">{{ message }}</div>
+
+  </body>
+</html>
